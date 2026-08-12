@@ -32,7 +32,10 @@ class Player(Entity):
 
     
     def increase_stats(self):
-        pass
+        self.hp += 5
+        self.attack += 2
+        self.defense += 1
+        self.speed += 1
     
     # Per caricare i dati del player
     @classmethod
