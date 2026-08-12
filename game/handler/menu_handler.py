@@ -12,7 +12,7 @@ class MenuHandler:
         choice = self.input_handler.get_number(1,3)
         
         if choice == 1:
-            return GameState.CHARACTER_CREATION_STATE
+            return GameState.CHARACTER_CREATION_STATE, None, None
         
         elif choice == 2:
             if self.save_manager.save_exists(file_path):
