@@ -8,9 +8,7 @@ class TowerHandler:
         self.save_manager = save_manager
         
     def handle_tower_menu(self, tower, player):
-        #self.menu_manager.show_tower_menu(tower)
-        
-        #choice = self.input_handler.get_number(1, 2)
+       
         while True:
             if tower.current_floor == 1:
                 self.menu_manager.show_tower_menu(tower, player)
