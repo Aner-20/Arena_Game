@@ -1,0 +1,34 @@
+{
+    "tower_1": {
+        "name": "Goblin Tower",
+        "description": "A tower inhabited by dangerous goblins. Defeat them all to reach the boss.",
+        "floors": [
+            {
+                "floor": 1,
+                "enemy": "goblin",
+                "floor_type": "battle"
+                
+            },
+            {
+                "floor": 2,
+                "enemy": "goblin",
+                "floor_type": "battle"
+            },
+            {
+                "floor": 3,
+                "enemy": "goblin",
+                "floor_type": "battle"
+            },
+            {
+                "floor": 4,
+                "enemy": "goblin",
+                "floor_type": "battle"
+            },
+            {
+                "floor": 5,
+                "enemy": "boss",
+                "floor_type": "battle"
+            }
+        ]
+    }
+}
