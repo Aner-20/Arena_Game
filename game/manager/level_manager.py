@@ -5,6 +5,11 @@ class LevelManager:
     def add_exp(self, player, amount):
         player.exp += amount
         
+        # Si usa il while per gestire più avanzamenti di livello.
+        # Con un if si perderebbe l'exp in eccesso e andrebbe persa
+        while self.can_level_up(player):
+            self.level_up(player)
+        
     
     def can_level_up(self, player):
         return player.exp >= self.get_exp_required(player)
@@ -14,7 +19,7 @@ class LevelManager:
     
     def level_up(self, player):
         player.level += 1
-        player.exp = 0
+        player.exp -= self.get_exp_required(player)
         
         # Funzione player per gestire gli aumenti delle statistiche
         player.increase_stats()

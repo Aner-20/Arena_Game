@@ -33,6 +33,7 @@ class Player(Entity):
     
     def increase_stats(self):
         self.hp += 5
+        self.hp = self.max_hp
         self.attack += 2
         self.defense += 1
         self.speed += 1
