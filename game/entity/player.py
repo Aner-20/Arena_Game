@@ -8,6 +8,9 @@ class Player(Entity):
         self.attack = 1
         self.defense = 0
         self.speed = 1
+        self.level = 1
+        self.exp = 0
+        self.exp_to_next_level = 5
     
     
     def is_alive(self):
@@ -23,6 +26,9 @@ class Player(Entity):
         print(f"Attack: {self.attack}")
         print(f"Defense: {self.defense}")
         print(f"Speed: {self.speed}")
+        print(f"Level: {self.level}")
+        print(f"Exp: {self.exp}")
+        print(f"Next Level: {self.exp_to_next_level}")
 
     
     # Per caricare i dati del player
@@ -35,6 +41,9 @@ class Player(Entity):
         player.attack = data["attack"]
         player.defense = data["defense"]
         player.speed = data["speed"]
+        player.level = data["level"]
+        player.exp = data["exp"]
+        player.exp_to_next_level = data["exp_to_next_level"]
 
         return player
 
@@ -46,7 +55,10 @@ class Player(Entity):
             "max_hp": self.max_hp,
             "attack": self.attack,
             "defense": self.defense,
-            "speed": self.speed
+            "speed": self.speed,
+            "level": self.level,
+            "exp": self.exp,
+            "exp_to_next_level": self.exp_to_next_level
         }
     
     
