@@ -6,10 +6,11 @@ class CombatHandler:
     
     # Flusso della battaglia
     
-    def __init__(self, input_handler, menu_manager, combat_manager):
+    def __init__(self, input_handler, menu_manager, combat_manager, level_manager):
         self.input_handler = input_handler
         self.menu_manager = menu_manager
         self.combat_manager = combat_manager
+        self.level_manager = level_manager
        
     
     def start_combat(self, player, enemy, tower):
@@ -36,11 +37,10 @@ class CombatHandler:
                 break
             
         self.end_battle(player, enemy)
-
-        # Per il momento
+        
+        self.level_manager.add_exp(player, enemy.exp)
+        
         return GameState.FLOOR_STATE
-        
-        
     
     def end_battle(self, player, enemy):
 

@@ -3,6 +3,7 @@ class LevelManager:
         pass
     
     def add_exp(self, player, amount):
+        print(f"{player} earned {amount} exp!")
         player.exp += amount
         
         # Si usa il while per gestire più avanzamenti di livello.

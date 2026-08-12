@@ -11,6 +11,7 @@ from game.manager.combat_manager import CombatManager
 from game.manager.character_manager import CharacterManager
 from game.manager.file_manager import FileManager
 from game.manager.save_manager import SaveManager
+from game.manager.level_manager import LevelManager
 
 class Game:
     def __init__(self):
@@ -30,11 +31,12 @@ class Game:
         self.character_manager = CharacterManager(self.file_manager)
         self.tower_manager = TowerManager(self.file_manager)
         self.save_manager = SaveManager(self.file_manager)
+        self.level_manager = LevelManager()
         
         self.input_handler = InputHandler()
         self.menu_handler = MenuHandler(self.input_handler, self.menu_manager, self.save_manager)
         self.character_creation_handler = CharacterCreationHandler(self.input_handler, self.menu_manager, self.character_manager)
-        self.combat_handler = CombatHandler(self.input_handler, self.menu_manager, self.combat_manager)
+        self.combat_handler = CombatHandler(self.input_handler, self.menu_manager, self.combat_manager, self.level_manager)
         self.tower_handler = TowerHandler(self.input_handler, self.menu_manager, self.tower_manager, self.save_manager)
         self.save_handler = SaveHandler(self.save_manager)
         

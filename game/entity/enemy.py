@@ -1,7 +1,7 @@
 from game.entity.entity import Entity
 
 class Enemy(Entity):
-    def __init__(self, name, type, hp, attack, defense, speed):
+    def __init__(self, name, type, hp, attack, defense, speed, level, exp):
         super().__init__(name)
         self.type = type
         self.hp = hp
@@ -9,6 +9,8 @@ class Enemy(Entity):
         self.attack = attack
         self.defense = defense
         self.speed = speed
+        self.level = level
+        self.exp = exp
         
     def is_alive(self):
         return self.hp > 0

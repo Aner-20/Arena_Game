@@ -20,5 +20,7 @@ class CharacterManager:
             enemy_data["hp"],
             enemy_data["attack"],
             enemy_data["defense"],
-            enemy_data["speed"]
+            enemy_data["speed"],
+            enemy_data["level"],
+            enemy_data["exp"]
         )
