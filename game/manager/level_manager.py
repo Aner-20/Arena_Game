@@ -7,14 +7,16 @@ class LevelManager:
         
     
     def can_level_up(self, player):
-        return player.exp >= player.exp_to_next_level
+        return player.exp >= self.get_exp_required(player)
         
-    
+    def get_exp_required(self, player):
+        return player.level * player.exp_to_next_level
     
     def level_up(self, player):
         player.level += 1
         player.exp = 0
         
         # Funzione player per gestire gli aumenti delle statistiche
+        player.increase_stats()
         
         print(f"{player.name} reached level {player.level}!")

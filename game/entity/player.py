@@ -31,6 +31,9 @@ class Player(Entity):
         print(f"Next Level: {self.exp_to_next_level}")
 
     
+    def increase_stats(self):
+        pass
+    
     # Per caricare i dati del player
     @classmethod
     def from_dict(cls, data):
