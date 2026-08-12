@@ -7,4 +7,5 @@ class GameState(Enum):
     CHARACTER_CREATION_STATE = 4
     COMBAT_STATE = 5
     FLOOR_STATE = 6
+    #CHARACTER_STATE = 7
     

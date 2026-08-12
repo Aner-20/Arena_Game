@@ -10,7 +10,7 @@ class Player(Entity):
         self.speed = 1
         self.level = 1
         self.exp = 0
-        self.exp_to_next_level = 5
+        self.exp_to_next_level =  5
     
     
     def is_alive(self):
@@ -28,15 +28,17 @@ class Player(Entity):
         print(f"Speed: {self.speed}")
         print(f"Level: {self.level}")
         print(f"Exp: {self.exp}")
-        print(f"Next Level: {self.exp_to_next_level}")
+        print(f"Next Level (exp required): {self.exp_to_next_level}")
 
     
-    def increase_stats(self):
-        self.hp += 5
+    def increase_stats(self, updated_exp):
+        self.max_hp += 5
         self.hp = self.max_hp
         self.attack += 2
         self.defense += 1
         self.speed += 1
+        self.exp = updated_exp
+        
     
     # Per caricare i dati del player
     @classmethod

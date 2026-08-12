@@ -15,6 +15,7 @@ class MenuManager:
     
     def show_tower_menu(self, tower, player):
         player.show_health()
+        
         if tower.current_floor == 1:
             print("=== Tower ===")
             tower.show_info()
@@ -26,7 +27,8 @@ class MenuManager:
             tower.show_current_floor()
             print("1. Advance to the next floor")
             print("2. Save")
-            print("3. Quit (return to the main menu)")
+            print("3. View character")
+            print("4. Quit (return to the main menu)")
             
         
     def show_combat_menu(self):

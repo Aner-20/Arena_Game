@@ -24,16 +24,18 @@ class TowerHandler:
             elif tower.current_floor > 1 and tower.current_floor < len(tower.floors):
                 self.menu_manager.show_tower_menu(tower, player)
                 
-                choice = self.input_handler.get_number(1, 3)
+                choice = self.input_handler.get_number(1, 4)
                 
                 if choice == 1:
                     return self.handle_current_floor(tower)
                 
                 elif choice == 2:
                     self.save_manager.save_game(player, tower)
-                    
                 
                 elif choice == 3:
+                    player.show_info()    
+                
+                elif choice == 4:
                     tower.reset_floor()
                     return GameState.MAIN_MENU_STATE, None
                     
