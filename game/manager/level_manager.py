@@ -23,13 +23,9 @@ class LevelManager:
         
         player.exp -= self.get_exp_required(player)
         
-        #exp_required = self.get_exp_required(player)
-        
-        player.level += 1
-        
+        player.level += 1  
         player.exp_to_next_level = player.level * 5
         
-        # Funzione player per gestire gli aumenti delle statistiche
         player.increase_stats(player.exp)
         
         print(f"{player.name} reached level {player.level}!")

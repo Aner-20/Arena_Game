@@ -10,7 +10,7 @@ class Player(Entity):
         self.speed = 1
         self.level = 1
         self.exp = 0
-        self.exp_to_next_level =  5
+        self.exp_to_next_level = 5
     
     
     def is_alive(self):
