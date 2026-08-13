@@ -14,14 +14,15 @@ class MenuManager:
         print("2. Back to the main menu")
     
     def show_tower_menu(self, tower, player):
-        player.show_health()
+        #player.show_health()
         
         if tower.current_floor == 1:
             print("=== Tower ===")
             tower.show_info()
             print("-------------")
             print("1. Get into the tower")
-            print("2. Back to the main menu")
+            print("2. View character")
+            print("3. Back to the main menu")
         
         elif tower.current_floor > 1 and tower.current_floor < len(tower.floors):
             tower.show_current_floor()

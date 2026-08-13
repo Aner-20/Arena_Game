@@ -10,5 +10,10 @@ class Inventory:
         self.items.remove(item)
         
     def show_items(self):
+        
+        if not self.items:
+            print("Inventory is empty")
+            return 
+        
         for item in self.items:
-            print(item)
+            print(item.name)

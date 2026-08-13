@@ -1,4 +1,5 @@
 from game.entity.entity import Entity
+from game.entity.inventory import Inventory
 
 class Player(Entity):
     def __init__(self, name):
@@ -11,6 +12,8 @@ class Player(Entity):
         self.level = 1
         self.exp = 0
         self.exp_to_next_level = 5
+        
+        self.inventory = Inventory()
     
     
     def is_alive(self):

@@ -4,6 +4,7 @@
         "description": "Restores 10 HP.",
         "price": 10,
         "item_type": "consumable",
+        "quantity": 1,
         "effect": {
             "type": "heal",
             "value": 10
@@ -15,6 +16,7 @@
         "description": "Restores 25 HP.",
         "price": 25,
         "item_type": "consumable",
+        "quantity": 1,
         "effect": {
             "type": "heal",
             "value": 25
@@ -26,6 +28,7 @@
         "description": "A basic iron sword that increases attack.",
         "price": 50,
         "item_type": "weapon",
+        "quantity": 1,
         "effect": {
             "type": "attack",
             "value": 2

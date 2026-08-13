@@ -5,6 +5,7 @@ from game.handler.combat_handler import CombatHandler
 from game.handler.character_creation_handler import CharacterCreationHandler
 from game.handler.tower_handler import TowerHandler
 from game.handler.save_handler import SaveHandler
+from game.handler.player_handler import PlayerHandler
 from game.manager.tower_manager import TowerManager
 from game.manager.menu_manager import MenuManager
 from game.manager.combat_manager import CombatManager
@@ -39,6 +40,7 @@ class Game:
         self.combat_handler = CombatHandler(self.input_handler, self.menu_manager, self.combat_manager, self.level_manager)
         self.tower_handler = TowerHandler(self.input_handler, self.menu_manager, self.tower_manager, self.save_manager)
         self.save_handler = SaveHandler(self.save_manager)
+        self.player_handler = PlayerHandler(self.input_handler, self.menu_manager)
         
         
     def run(self):
@@ -64,6 +66,9 @@ class Game:
             elif self.current_state == GameState.FLOOR_STATE:
                 self.tower.next_floor()
                 self.current_state, self.enemy_type = (self.tower_handler.handle_tower_menu(self.tower, self.player))
+             
+            elif self.current_state == GameState.PLAYER_STATE:
+                pass
              
             elif self.current_state == GameState.EXIT_STATE:
                 self.running = False

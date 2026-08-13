@@ -62,11 +62,16 @@ class SaveManager:
             "max_hp",
             "attack",
             "defense",
-            "speed"
+            "speed",
+            "exp",
+            "exp_to_next_level"
+            
         }
         
         required_tower_fields = {
             "name",
+            "description",
+            "floors",
             "current_floor",
             "completed"
         }
