@@ -1,13 +1,13 @@
 {
     "player": {
-        "name": "And",
+        "name": "Andrea",
         "hp": 15,
         "max_hp": 15,
         "attack": 3,
         "defense": 1,
         "speed": 2,
         "level": 2,
-        "exp": 2,
+        "exp": 9,
         "exp_to_next_level": 10
     },
     "tower": {
@@ -40,7 +40,7 @@
                 "floor_type": "battle"
             }
         ],
-        "current_floor": 2,
+        "current_floor": 3,
         "completed": false
     }
 }
