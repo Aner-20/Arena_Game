@@ -1,0 +1,7 @@
+{
+    "merchant_1": {
+        "name": "Merchant",
+        "type": "merchant",
+        "dialogue": "Welcome, adventurer! Take a look at my wares."
+    }
+}

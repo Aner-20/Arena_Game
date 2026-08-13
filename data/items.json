@@ -1,0 +1,34 @@
+{
+    "health_potion": {
+        "name": "Health Potion",
+        "description": "Restores 10 HP.",
+        "price": 10,
+        "item_type": "consumable",
+        "effect": {
+            "type": "heal",
+            "value": 10
+        }
+    },
+
+    "greater_health_potion": {
+        "name": "Greater Health Potion",
+        "description": "Restores 25 HP.",
+        "price": 25,
+        "item_type": "consumable",
+        "effect": {
+            "type": "heal",
+            "value": 25
+        }
+    },
+
+    "iron_sword": {
+        "name": "Iron Sword",
+        "description": "A basic iron sword that increases attack.",
+        "price": 50,
+        "item_type": "weapon",
+        "effect": {
+            "type": "attack",
+            "value": 2
+        }
+    }
+}
