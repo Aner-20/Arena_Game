@@ -17,4 +17,6 @@ class Inventory:
             return 
         
         for item in self.items.values():
-            print(f" - {item.name}")
+            
+            
+            print(f" - {item.name} - {item.item_type} - {item.effect["value"]}")

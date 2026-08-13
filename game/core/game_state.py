@@ -8,4 +8,5 @@ class GameState(Enum):
     COMBAT_STATE = 5
     FLOOR_STATE = 6
     PLAYER_STATE = 7
+    INVENTORY_STATE = 8
     
