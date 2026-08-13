@@ -10,7 +10,7 @@ class Inventory:
         self.items.remove(item)
         
     def show_items(self):
-        
+        print("=== Inventory === ")
         if not self.items:
             print("Inventory is empty")
             return 

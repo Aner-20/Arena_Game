@@ -6,12 +6,13 @@ class PlayerHandler:
         self.input_handler = input_handler
         self.menu_manager = menu_manager
         
-    def show_player_menu(self, player):
-        self.menu_manager.show_player_menu(player)
-        
-        choice = self.input_handler.get_number(1, 3)
-        
+    def handle_player_menu(self, player):
+       
         while True:
+            self.menu_manager.show_player_menu()
+            
+            choice = self.input_handler.get_number(1, 3)
+            
             if choice == 1:
                 player.show_info()
             
@@ -19,4 +20,4 @@ class PlayerHandler:
                 player.inventory.show_items()
                 
             elif choice == 3:
-                return GameState.MAIN_MENU_STATE
+                return GameState.GAME_STATE

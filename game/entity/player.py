@@ -24,6 +24,7 @@ class Player(Entity):
         print(f"Health: {self.hp}/{self.max_hp}")
     
     def show_info(self):
+        print("=== Stats === ")
         print(f"Name: {self.name}")
         print(f"Health: {self.hp}/{self.max_hp}")
         print(f"Attack: {self.attack}")

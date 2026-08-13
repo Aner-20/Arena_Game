@@ -12,6 +12,12 @@ class MenuManager:
         print("=== Character Creation === ")
         print("1. Create character")
         print("2. Back to the main menu")
+        
+    def show_player_menu(self):
+        print("=== Player Menu === ")
+        print("1. Show stats")
+        print("2. Show inventory")
+        print("3. Back to game")    
     
     def show_tower_menu(self, tower, player):
         #player.show_health()
@@ -30,7 +36,8 @@ class MenuManager:
             print("2. Save")
             print("3. View character")
             print("4. Quit (return to the main menu)")
-            
+    
+       
         
     def show_combat_menu(self):
         print("=== Battle ===")

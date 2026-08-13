@@ -36,7 +36,7 @@ class TowerHandler:
                     self.save_manager.save_game(player, tower)
                 
                 elif choice == 3:
-                    player.show_info()    
+                    return GameState.PLAYER_STATE, None   
                 
                 elif choice == 4:
                     tower.reset_floor()

@@ -68,7 +68,7 @@ class Game:
                 self.current_state, self.enemy_type = (self.tower_handler.handle_tower_menu(self.tower, self.player))
              
             elif self.current_state == GameState.PLAYER_STATE:
-                pass
+                self.current_state = self.player_handler.handle_player_menu(self.player)
              
             elif self.current_state == GameState.EXIT_STATE:
                 self.running = False
