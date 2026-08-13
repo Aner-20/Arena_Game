@@ -46,7 +46,7 @@ class Player(Entity):
     
     # Per caricare i dati del player
     @classmethod
-    def from_dict(cls, data):
+    def from_dict(cls, data, game_items):
         player = cls(data["name"])
 
         player.hp = data["hp"]
@@ -58,6 +58,13 @@ class Player(Entity):
         player.exp = data["exp"]
         player.exp_to_next_level = data["exp_to_next_level"]
 
+        # Ricostruisce l'inventario
+        for item_name in data["inventory"]:
+            item = game_items
+            
+            if item:
+                player.inventory.add_item(item)
+    
         return player
 
     # Per salvare i dati del player
@@ -71,7 +78,10 @@ class Player(Entity):
             "speed": self.speed,
             "level": self.level,
             "exp": self.exp,
-            "exp_to_next_level": self.exp_to_next_level
+            "exp_to_next_level": self.exp_to_next_level,
+            
+            "inventory" : [item.name for item in self.inventory.items]
+            
         }
     
     

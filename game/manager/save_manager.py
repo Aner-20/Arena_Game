@@ -3,6 +3,9 @@ import json
 from game.entity.player import Player
 from game.entity.tower import Tower
 
+# Salva e ripristina lo stato della partita
+# Quindi stato player (incluso inventario), torre, npc,  etc...
+
 class SaveManager:
     def __init__(self, file_manager):
         self.file_manager = file_manager

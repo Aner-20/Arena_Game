@@ -25,8 +25,5 @@ class MenuHandler:
         
         elif choice == 3:
             return GameState.EXIT_STATE, None, None
-        
-        
-    
     
         

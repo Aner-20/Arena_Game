@@ -13,6 +13,7 @@ from game.manager.character_manager import CharacterManager
 from game.manager.file_manager import FileManager
 from game.manager.save_manager import SaveManager
 from game.manager.level_manager import LevelManager
+from game.manager.item_manager import ItemManager
 
 class Game:
     def __init__(self):
@@ -24,6 +25,8 @@ class Game:
         self.enemy_type = None
         self.tower = None
         
+        self.game_items = {}
+        
         self.save_file_path = "save/save.json"
         
         self.file_manager = FileManager()
@@ -33,6 +36,7 @@ class Game:
         self.tower_manager = TowerManager(self.file_manager)
         self.save_manager = SaveManager(self.file_manager)
         self.level_manager = LevelManager()
+        self.item_manager = ItemManager(self.file_manager)
         
         self.input_handler = InputHandler()
         self.menu_handler = MenuHandler(self.input_handler, self.menu_manager, self.save_manager)
@@ -43,13 +47,17 @@ class Game:
         self.player_handler = PlayerHandler(self.input_handler, self.menu_manager)
         
         
+        
+        
     def run(self):
+        self.game_items = self.item_manager.load_items()
+        
         while self.running:
             if self.current_state == GameState.MAIN_MENU_STATE:
                 self.current_state, self.player, self.tower = self.menu_handler.handle_main_menu(self.save_file_path)
             
             elif self.current_state == GameState.CHARACTER_CREATION_STATE:
-                self.player, self.current_state = (self.character_creation_handler.handle_character_creation_menu())
+                self.player, self.current_state,  = (self.character_creation_handler.handle_character_creation_menu(self.game_items))
             
             elif self.current_state == GameState.GAME_STATE:
                 # Così la torre viene creata una sola volta
@@ -72,3 +80,15 @@ class Game:
              
             elif self.current_state == GameState.EXIT_STATE:
                 self.running = False
+                """
+                self.item_manager.show_all_items(self.game_items)
+                item = self.item_manager.get_item(self.game_items, "iron_sword")
+                
+                if item:
+                    item.show_info()
+                else:
+                    print("Item not found")    
+                """
+                
+                
+                

@@ -1,6 +1,7 @@
 class Item:
     
-    def __init__(self, name, description, price, item_type, quantity,  effect):
+    def __init__(self, id, name, description, price, item_type, quantity,  effect):
+        self.id = id
         self.name = name
         self.description = description
         self.price = price
@@ -17,6 +18,7 @@ class Item:
     @classmethod
     def from_dict(cls, data):
         return cls(
+            data["id"], 
             data["name"],
             data["description"],
             data["price"],
@@ -27,6 +29,7 @@ class Item:
 
     def to_dict(self):
         return {
+            "id": self.id,
             "name": self.name,
             "description": self.description,
             "price": self.price,

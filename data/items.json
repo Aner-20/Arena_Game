@@ -1,5 +1,6 @@
 {
     "health_potion": {
+        "id": 1,
         "name": "Health Potion",
         "description": "Restores 10 HP.",
         "price": 10,
@@ -12,6 +13,7 @@
     },
 
     "greater_health_potion": {
+        "id": 2,
         "name": "Greater Health Potion",
         "description": "Restores 25 HP.",
         "price": 25,
@@ -24,6 +26,7 @@
     },
 
     "iron_sword": {
+        "id": 3,
         "name": "Iron Sword",
         "description": "A basic iron sword that increases attack.",
         "price": 50,
