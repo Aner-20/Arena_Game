@@ -42,3 +42,18 @@ class InputHandler:
             except ValueError:
                 print("Invalid input. Insert a number")
                 
+    def get_player_hand(self):
+        while True:
+            
+            hand = input("Left or right hand: ")
+            
+            if hand.lower() == "left":
+                return hand
+            
+            elif hand.lower() == "right":
+                return hand
+            
+            else:
+                print("Write left or right")
+                
+            

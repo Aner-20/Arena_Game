@@ -6,14 +6,15 @@ class EquipmentHandler:
         self.input_handler = input_handler
         self.menu_manager = menu_manager
         
-    def handle_equipment_menu(self, player):
+    def handle_equipment_menu(self, player, selected_item):
         while True:
             self.menu_manager.show_equipment_menu(player)
-        
+            #print(selected_item.name)
             choice = self.input_handler.get_number(1, 4)
             
             if choice == 1:
-                pass
+                hand = self.input_handler.get_player_hand()
+                player.equip_item(selected_item, hand)
             
             elif choice == 2:
                 pass

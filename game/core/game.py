@@ -81,10 +81,10 @@ class Game:
                 self.current_state = self.player_handler.handle_player_menu(self.player)
              
             elif self.current_state == GameState.INVENTORY_STATE:
-                self.current_state = self.inventory_handler.handle_inventory_menu(self.player)
+                self.current_state, selected_item  = (self.inventory_handler.handle_inventory_menu(self.player))
 
             elif self.current_state == GameState.EQUIPMENT_STATE:
-                self.current_state = self.equipment_handler.handle_equipment_menu(self.player)
+                self.current_state = self.equipment_handler.handle_equipment_menu(self.player, selected_item)
              
             elif self.current_state == GameState.EXIT_STATE:
                 self.running = False

@@ -6,7 +6,8 @@ class Player(Entity):
         super().__init__(name)
         self.hp = 10
         self.max_hp = self.hp
-        self.attack = 1
+        self.base_attack = 1
+        self.attack = self.base_attack
         self.defense = 0
         self.speed = 1
         self.level = 1
@@ -21,20 +22,47 @@ class Player(Entity):
     def equip_item(self, item, hand):
         if item.item_type != "weapon":
             print("This item cannot be equipped")
-            return False
+            
 
-        if hand == "left".lower():
+        if hand.lower() == "left":
             self.left_hand = item
+            
         
-        elif hand == "right".lower():
+        elif hand.lower() == "right":
             self.right_hand = item
         
         else:
             print("Invalid hand")
-            return False
+            
 
-        return True
-     
+        self.update_stats()
+        
+        
+    
+    def unequip_item(self, hand):
+        if hand.lower() == "left":
+            self.left_hand = None
+            
+        elif hand.lower() == "right":
+            self.right_hand = None
+            
+        else:
+            print("Invalid hand")
+            
+        self.update_stats()
+        
+
+    
+    def update_stats(self):
+        self.attack = self.base_attack
+        
+        if self.left_hand:
+            if self.left_hand.effect["type"] == "attack":
+                self.attack += self.left_hand.effect["value"]
+                
+        if self.right_hand:
+            if self.right_hand.effect["type"] == "attack":
+                self.attack += self.right_hand.effect["value"]
         
     def is_alive(self):
         return self.hp > 0
@@ -42,7 +70,7 @@ class Player(Entity):
     def increase_stats(self, updated_exp):
         self.max_hp += 5
         self.hp = self.max_hp
-        self.attack += 2
+        self.base_attack += 2
         self.defense += 1
         self.speed += 1
         self.exp = updated_exp
@@ -61,9 +89,16 @@ class Player(Entity):
         print(f"Level: {self.level}")
         print(f"Exp: {self.exp}")
         print(f"Next Level (exp required): {self.exp_to_next_level}")
-        print(f"Left hand: {self.left_hand}")
-        print(f"Right hand: {self.right_hand}")
-    
+        
+        if self.left_hand:
+            print(f"Left hand: {self.left_hand.name}")
+        else:
+            print("Left hand: Empty")
+
+        if self.right_hand:
+            print(f"Right hand: {self.right_hand.name}")
+        else:
+            print("Right hand: Empty")
     
         
     
@@ -74,6 +109,7 @@ class Player(Entity):
 
         player.hp = data["hp"]
         player.max_hp = data["max_hp"]
+        player.base_attack = data["base_attack"]
         player.attack = data["attack"]
         player.defense = data["defense"]
         player.speed = data["speed"]
@@ -89,6 +125,18 @@ class Player(Entity):
             
             if item:
                 player.inventory.add_item(item)
+                
+        # Ricostruisce l'equipaggiamento
+        left_hand_name = data.get("left_hand")
+        right_hand_name = data.get("right_hand")
+        
+        if left_hand_name:
+            player.left_hand = game_items.get(left_hand_name)
+            
+        if right_hand_name:
+            player.right_hand = game_items.get(right_hand_name)
+            
+        player.update_stats()
     
         return player
 
@@ -104,8 +152,8 @@ class Player(Entity):
             "level": self.level,
             "exp": self.exp,
             "exp_to_next_level": self.exp_to_next_level,
-            "left_hand": self.left_hand,
-            "right_hand": self.right_hand,
+            "left_hand": (self.left_hand.name if self.left_hand else None),
+            "right_hand": (self.right_hand.name if self.right.hand else None ),
             
             "inventory" : [item.name for item in self.inventory.items]
             

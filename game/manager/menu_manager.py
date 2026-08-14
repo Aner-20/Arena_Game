@@ -25,7 +25,7 @@ class MenuManager:
     def show_equipment_menu(self, player):
         print("=== Equipment ===")
         print(f"Left Hand: {player.left_hand}")
-        print(f"Right Hand: ")
+        print(f"Right Hand: {player.right_hand}")
         print("1. Equip Item")
         print("2. Unequip left hand")
         print("3. Unequip right hand")
