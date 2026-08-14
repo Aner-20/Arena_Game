@@ -25,3 +25,16 @@ class InputHandler:
                 print("Invalid input! Insert only letters")
         
         return name
+    
+    def pick_item(self, min_value, max_value):
+        while True:
+            try:
+                item = int(input("Item: "))
+                
+                if min_value <= item <= max_value:
+                    return item
+                
+                print(f"Insert a number between {min_value} and {max_value}")
+                
+            except ValueError:
+                print("Invalid input. Insert a number")

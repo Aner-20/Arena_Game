@@ -19,6 +19,9 @@ class MenuManager:
         print("2. Show inventory")
         print("3. Back to game")    
     
+    def show_inventory_menu(self, player):
+        player.inventory.show_items()
+    
     def show_tower_menu(self, tower, player):
         #player.show_health()
         

@@ -16,7 +16,16 @@ class Inventory:
             print("Inventory is empty")
             return 
         
-        for item in self.items.values():
+        for index, item in enumerate(self.items.values(), start = 1):
+            min_index = min(1, index)
+            max_index = max(1, index)
+           
+            print(f"{index}. {item.name} - {item.item_type}")
             
-            
-            print(f" - {item.name} - {item.item_type} - {item.effect["value"]}")
+        return min_index, max_index 
+           
+        #print("Min: ", min_index)
+        #print("Max: ", max_index)
+        
+        #for item in self.items.values():
+        #    print(f" - {item.name} - {item.item_type} - {item.effect["value"]}")

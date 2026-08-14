@@ -17,7 +17,8 @@ class PlayerHandler:
                 player.show_info()
             
             elif choice == 2:
-                player.inventory.show_items()
+                #player.inventory.show_items()
+                return GameState.INVENTORY_STATE
                 
             elif choice == 3:
                 return GameState.GAME_STATE
