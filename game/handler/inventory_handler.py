@@ -24,6 +24,8 @@ class InventoryHandler:
                 for index, item in enumerate(player.inventory.items.values(), start=1):
                     if index == choice:
                         item.show_info()
+            
+                return GameState.INVENTORY_STATE
                         
             
             elif choice == highest_index:

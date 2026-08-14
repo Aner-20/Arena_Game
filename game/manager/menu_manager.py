@@ -22,6 +22,15 @@ class MenuManager:
     def show_inventory_menu(self, player):
         player.inventory.show_items()
     
+    def show_equipment_menu(self, player):
+        print("=== Equipment ===")
+        print(f"Left Hand: {player.left_hand}")
+        print(f"Right Hand: ")
+        print("1. Equip Item")
+        print("2. Unequip left hand")
+        print("3. Unequip right hand")
+        print("4. Back to inventory")
+    
     def show_tower_menu(self, tower, player):
         #player.show_health()
         

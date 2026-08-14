@@ -18,10 +18,34 @@ class Player(Entity):
         
         self.inventory = Inventory()
 
+    def equip_item(self, item, hand):
+        if item.item_type != "weapon":
+            print("This item cannot be equipped")
+            return False
+
+        if hand == "left".lower():
+            self.left_hand = item
         
-    
+        elif hand == "right".lower():
+            self.right_hand = item
+        
+        else:
+            print("Invalid hand")
+            return False
+
+        return True
+     
+        
     def is_alive(self):
         return self.hp > 0
+    
+    def increase_stats(self, updated_exp):
+        self.max_hp += 5
+        self.hp = self.max_hp
+        self.attack += 2
+        self.defense += 1
+        self.speed += 1
+        self.exp = updated_exp
     
     def show_health(self):
         print(f"Name: {self.name}")
@@ -40,13 +64,7 @@ class Player(Entity):
         print(f"Left hand: {self.left_hand}")
         print(f"Right hand: {self.right_hand}")
     
-    def increase_stats(self, updated_exp):
-        self.max_hp += 5
-        self.hp = self.max_hp
-        self.attack += 2
-        self.defense += 1
-        self.speed += 1
-        self.exp = updated_exp
+    
         
     
     # Per caricare i dati del player
