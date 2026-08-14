@@ -10,11 +10,21 @@ class Item:
         self.effect = effect
         
     def show_info(self):
+        print("---------")
         print(f"Item: {self.name}")
+        self.show_value()
         print(f"Description: {self.description}")
         print(f"Price: {self.price} gold")
         print(f"Quantity: {self.quantity}")
-        
+        print("---------")
+    
+    def show_value(self):
+        if self.item_type == "consumable":
+            print(f"Healing points: {self.effect["value"]}")
+            
+        elif self.item_type == "weapon":
+            print(f"Attack points: {self.effect["value"]}")
+    
     @classmethod
     def from_dict(cls, data):
         return cls(

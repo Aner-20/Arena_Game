@@ -1,3 +1,5 @@
+from game.utils.utils import Utils
+
 class Inventory:
     
     def __init__(self):
@@ -21,11 +23,11 @@ class Inventory:
             max_index = max(1, index)
            
             print(f"{index}. {item.name} - {item.item_type}")
+
             
-        return min_index, max_index 
-           
-        #print("Min: ", min_index)
-        #print("Max: ", max_index)
-        
+        Utils.set_indexes(min_index, max_index)
+    
+    
+    
         #for item in self.items.values():
         #    print(f" - {item.name} - {item.item_type} - {item.effect["value"]}")

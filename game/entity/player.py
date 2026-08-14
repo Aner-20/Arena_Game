@@ -13,8 +13,12 @@ class Player(Entity):
         self.exp = 0
         self.exp_to_next_level = 5
         
+        self.left_hand = None
+        self.right_hand = None
+        
         self.inventory = Inventory()
-    
+
+        
     
     def is_alive(self):
         return self.hp > 0
@@ -33,7 +37,8 @@ class Player(Entity):
         print(f"Level: {self.level}")
         print(f"Exp: {self.exp}")
         print(f"Next Level (exp required): {self.exp_to_next_level}")
-
+        print(f"Left hand: {self.left_hand}")
+        print(f"Right hand: {self.right_hand}")
     
     def increase_stats(self, updated_exp):
         self.max_hp += 5
@@ -57,6 +62,8 @@ class Player(Entity):
         player.level = data["level"]
         player.exp = data["exp"]
         player.exp_to_next_level = data["exp_to_next_level"]
+        player.left_hand = data["left_hand"]
+        player.right_hand = data["right_hand"]
 
         # Ricostruisce l'inventario
         for item_name in data["inventory"]:
@@ -79,6 +86,8 @@ class Player(Entity):
             "level": self.level,
             "exp": self.exp,
             "exp_to_next_level": self.exp_to_next_level,
+            "left_hand": self.left_hand,
+            "right_hand": self.right_hand,
             
             "inventory" : [item.name for item in self.inventory.items]
             

@@ -1,4 +1,5 @@
 from game.core.game_state import GameState
+from game.utils.utils import Utils
 
 class InventoryHandler:
     
@@ -8,16 +9,25 @@ class InventoryHandler:
         
         
     def handle_inventory_menu(self, player):
-        self.menu_manager.show_inventory_menu(player)
         
-        
-        """
-        choice = self.input_handler.get_number(1, 2)
-        
-        if choice == 1:
-            pass
-        
-        elif choice == 2:
-            return GameState.PLAYER_STATE
+        while True:
+            self.menu_manager.show_inventory_menu(player)
+                    
+            min_index, max_index = Utils.get_indexes()
+            highest_index = max_index + 1
             
-        """
+            print(f"{highest_index}. Back to player menu")
+            
+            choice = self.input_handler.pick_item(min_index, max_index, highest_index)
+            
+            if min_index <= choice <= max_index:
+                for index, item in enumerate(player.inventory.items.values(), start=1):
+                    if index == choice:
+                        item.show_info()
+                        
+            
+            elif choice == highest_index:
+                return GameState.PLAYER_STATE
+        
+      
+        
