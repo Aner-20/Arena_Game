@@ -22,14 +22,21 @@ class MenuManager:
     def show_inventory_menu(self, player):
         player.inventory.show_items()
     
-    def show_equipment_menu(self, player):
+    def show_equipment_menu(self, player, selected_item):
+        
         print("=== Equipment ===")
-        print(f"Left Hand: {player.left_hand}")
-        print(f"Right Hand: {player.right_hand}")
-        print("1. Equip Item")
-        print("2. Unequip left hand")
-        print("3. Unequip right hand")
-        print("4. Back to inventory")
+       
+        if selected_item.item_type == "weapon":
+            print(f"Left Hand: {player.left_hand}")
+            print(f"Right Hand: {player.right_hand}")
+            print("1. Equip Item")
+            print("2. Unequip left hand")
+            print("3. Unequip right hand")
+            print("4. Back to inventory")
+        
+        elif selected_item.item_type == "consumable":
+            print("1. Use item")
+            print("2. Back to inventory")
     
     def show_tower_menu(self, tower, player):
         #player.show_health()
@@ -54,7 +61,8 @@ class MenuManager:
     def show_combat_menu(self):
         print("=== Battle ===")
         print("1. Attack")
-        print("2. Escape")
+        print("2. Use Item")
+        print("3. Escape")
    
     def show_player_stats(self, player):
         player.show_health()

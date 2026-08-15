@@ -24,8 +24,12 @@ class CharacterCreationHandler:
                 item = game_items.get(item_name)
                 
                 if item:
+                    #print("Item: ", item)
+                    #print("Type: ", item.item_type)
+                    player.inventory.add_item(item)
+                    player.inventory.add_item(item)
                     player.inventory.add_item(item)          
-            
+                    
           
             
             return player, GameState.GAME_STATE

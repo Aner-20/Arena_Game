@@ -22,11 +22,13 @@ class Player(Entity):
     def equip_item(self, item, hand):
         if item.item_type != "weapon":
             print("This item cannot be equipped")
-            
+          
+        if self.left_hand == item or self.right_hand == item:
+            print("This item is already equipped")  
 
         if hand.lower() == "left":
-            self.left_hand = item
-            
+           
+            self.left_hand = item    
         
         elif hand.lower() == "right":
             self.right_hand = item
@@ -37,13 +39,14 @@ class Player(Entity):
 
         self.update_stats()
         
-        
     
     def unequip_item(self, hand):
         if hand.lower() == "left":
+            print("The item has been unequipped")
             self.left_hand = None
             
         elif hand.lower() == "right":
+            print("The item has been unequipped")
             self.right_hand = None
             
         else:
@@ -74,6 +77,8 @@ class Player(Entity):
         self.defense += 1
         self.speed += 1
         self.exp = updated_exp
+        
+        self.update_stats()
     
     def show_health(self):
         print(f"Name: {self.name}")

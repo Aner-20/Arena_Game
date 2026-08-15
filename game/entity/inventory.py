@@ -6,7 +6,11 @@ class Inventory:
         self.items = {}
         
     def add_item(self, item):
-        self.items[item.id] = item
+        if item.id in self.items:
+            self.items[item.id].quantity += 1
+            
+        else:  
+            self.items[item.id] = item
         
     def remove_item(self, item):
         if item.id in self.items:
@@ -22,12 +26,10 @@ class Inventory:
             min_index = min(1, index)
             max_index = max(1, index)
            
-            print(f"{index}. {item.name} - {item.item_type}")
-
+            print(f"{index}. {item.name} - {item.item_type} x {item.quantity}")
+            
             
         Utils.set_indexes(min_index, max_index)
-    
-    
     
         #for item in self.items.values():
         #    print(f" - {item.name} - {item.item_type} - {item.effect["value"]}")

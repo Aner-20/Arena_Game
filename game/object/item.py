@@ -9,6 +9,9 @@ class Item:
         self.quantity = quantity
         self.effect = effect
         
+    def __str__(self):
+        return self.name    
+    
     def show_info(self):
         print("---------")
         print(f"Item: {self.name}")
